@@ -9,3 +9,4 @@ export const getAllArticles = () => {
     return data;
   });
 };
+
