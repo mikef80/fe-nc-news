@@ -9,5 +9,3 @@ const Main = ({ children }) => {
 };
 
 export default Main;
-
-//  className='md:self-center max-w-2xl'

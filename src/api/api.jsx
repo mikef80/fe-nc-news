@@ -15,9 +15,6 @@ export const getAllArticles = () => {
 
 export const getArticleById = (id) => {
   return ncNewsApi.get(`/articles/${id}`).then(({ data }) => {
-    data.articles.sort(
-      (a, b) => new Date(b.created_at) - new Date(a.created_at)
-    );
     return data;
   });
 };
