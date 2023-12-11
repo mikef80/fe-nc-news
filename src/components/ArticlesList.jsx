@@ -12,7 +12,7 @@ const ArticlesList = () => {
   },[]);
 
   return (
-    <ul className="px-3">
+    <ul className="px-3 pt-2">
       {articles.map(article => <ArticleListItem key={article.article_id} article={article}  />)}
     </ul>
   )
