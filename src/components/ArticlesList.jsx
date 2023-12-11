@@ -1,9 +1,21 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import ArticleListItem from "./ArticleListItem";
+import { getAllArticles } from "../api/api";
 
 const ArticlesList = () => {
-  return (
-    <div>ArticlesList</div>
-  )
-}
+  const [articles, setArticles] = useState([]);
 
-export default ArticlesList
+  useEffect(() => {
+    getAllArticles().then(({ articles }) => {
+      setArticles(articles);
+    });
+  },[]);
+
+  return (
+    <ul className="px-3">
+      {articles.map(article => <ArticleListItem key={article.article_id} article={article}  />)}
+    </ul>
+  )
+};
+
+export default ArticlesList;

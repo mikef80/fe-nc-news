@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <nav className='text-center border-t-2 py-2 absolute bottom-0 w-screen'>NavBar</nav>
+    <nav className='text-center border-t-2 border-black py-2 fixed bottom-0 w-screen bg-white'>
+      <Link to='/'>Home</Link>
+    </nav>
   )
 }
 
