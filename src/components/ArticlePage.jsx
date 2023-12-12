@@ -46,9 +46,7 @@ const ArticlePage = () => {
         <p className='text-xs capitalize pt-2 pb-[50px] text-gray-500'>
           {topic} • <DateDisplay date={created_at} />
         </p>
-        {/* VOTES IN HERE */}
         <VotingBar votes={votes} article_id={article_id} />
-        {/* VOTES END HERE */}
         <CommentsList article_id={article_id} />
       </div>
     </article>
