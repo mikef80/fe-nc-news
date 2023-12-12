@@ -32,3 +32,7 @@ export const updateVotesByArticleId = (id,votes) => {
       return data;
     });
 };
+
+export const postCommentByArticleId = () => {
+  console.log('post req');
+}
