@@ -48,7 +48,6 @@ const ArticlePage = () => {
           {topic} • <DateDisplay date={created_at} />
         </p>
         <VotingBar votes={votes} article_id={article_id} />
-        <CommentForm />
         <CommentsList article_id={article_id} />
       </div>
     </article>

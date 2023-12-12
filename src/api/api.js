@@ -25,7 +25,7 @@ export const getCommentsByArticleId = (id) => {
   });
 };
 
-export const updateVotesByArticleId = (id,votes) => {
+export const updateVotesByArticleId = (id, votes) => {
   return ncNewsApi
     .patch(`/articles/${id}`, { inc_votes: votes })
     .then(({ data }) => {
@@ -33,6 +33,19 @@ export const updateVotesByArticleId = (id,votes) => {
     });
 };
 
-export const postCommentByArticleId = () => {
-  console.log('post req');
-}
+export const postCommentByArticleId = (id, comment) => {
+  return ncNewsApi
+    .post(`/articles/${id}/comments`, {
+      username: "tickle122",
+      body: comment,
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const getUserByUsername = (username) => {
+  return ncNewsApi.get(`/users/${username}`).then(({ data }) => {
+    return data;
+  });
+};

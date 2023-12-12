@@ -36,7 +36,7 @@ const VotingBar = ({ votes, article_id }) => {
       </div>
       {showErr && (
         <div className='text-red-600 font-bold text-xs'>
-          An error occured - your vote has not been recorded
+          An error occurred - your vote has not been recorded
         </div>
       )}
     </div>
