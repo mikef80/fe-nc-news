@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DateDisplay from "./DateDisplay";
 
 const ArticleListItem = ({ article }) => {
   const {
@@ -23,12 +24,7 @@ const ArticleListItem = ({ article }) => {
           <p className='line-clamp-3'>{body}</p>
           <p className='text-xs capitalize pt-2'>
             {topic} •{" "}
-            {new Date(created_at).toLocaleDateString("en-GB", {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            <DateDisplay date={created_at} />
           </p>
         </div>
       </Link>

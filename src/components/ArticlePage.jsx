@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getArticleById } from "../api/api";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
+import CommentsList from "./CommentsList";
+import DateDisplay from "./DateDisplay";
 
 const ArticlePage = () => {
   const { article_id } = useParams();
@@ -35,20 +37,15 @@ const ArticlePage = () => {
 
   return (
     <article className='flex flex-col'>
-      <img src={article_img_url} alt='' />
+      <img src={article_img_url} alt='' className="md:pt-8"/>
       <div className='px-4 flex flex-col'>
         <h2 className='text-2xl py-2 font-medium'>{title}</h2>
         <p className='text-xs pb-2'>By: {author}</p>
         <p className='leading-7'>{body}</p>
         <p className='text-xs capitalize pt-2 pb-[50px] text-gray-500'>
-          {topic} •{" "}
-          {new Date(created_at).toLocaleDateString("en-GB", {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          {topic} • <DateDisplay date={created_at} />
         </p>
+        <CommentsList article_id={article_id} />
       </div>
     </article>
   );
