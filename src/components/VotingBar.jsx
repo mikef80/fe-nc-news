@@ -6,6 +6,8 @@ const VotingBar = ({ votes, article_id }) => {
   const [showErr, setShowErr] = useState(false);
 
   const handleVote = (vote_count) => {
+    setShowErr(false);
+    
     setArticleVotes((currVotes) => currVotes + vote_count);
 
     updateVotesByArticleId(article_id, vote_count).catch((err) => {
@@ -14,10 +16,6 @@ const VotingBar = ({ votes, article_id }) => {
       });
 
       setShowErr(true);
-
-      setTimeout(() => {
-        setShowErr(false);
-      }, 3000);
     });
   };
 
