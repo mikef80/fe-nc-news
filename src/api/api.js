@@ -24,3 +24,11 @@ export const getCommentsByArticleId = (id) => {
     return data;
   });
 };
+
+export const updateVotesByArticleId = (id,votes) => {
+  return ncNewsApi
+    .patch(`/articles/${id}`, { inc_votes: votes })
+    .then(({ data }) => {
+      return data;
+    });
+};
