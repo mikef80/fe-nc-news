@@ -28,10 +28,15 @@ const CommentForm = ({ article_id, setComments }) => {
           setSubmitting(false);
         })
         .catch((err) => {
+          console.log("here be errors");
           setComments((currComments) => {
             currComments.shift();
             return currComments;
           });
+          setErr((currErr) => {
+            return { .msg: "An error occurred - your comment has not been submitted",display:true };
+          });
+          setSubmitting(false);
         });
       setComment("");
     } else if (!comment.length) {
@@ -55,17 +60,14 @@ const CommentForm = ({ article_id, setComments }) => {
     <form
       className='flex flex-col items-center gap-3 justify-center p-3 mt-2'
       onSubmit={handleFormSubmit}>
-      <label htmlFor='comment'>
+      <label htmlFor='comment' className="flex items-center">
         Comment:
-        <input
-          type='text'
-          name='comment'
+        <textarea name='comment'
           id='comment'
           placeholder='Enter comment...'
           className='pl-3 py-1 ml-3 border-2 rounded-md'
           value={comment}
-          onChange={handleCommentUpdate}
-        />
+          onChange={handleCommentUpdate} />
       </label>
       {err.display && (
         <div className='text-red-600 font-bold text-xs'>{err.msg}</div>
