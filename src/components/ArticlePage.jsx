@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import CommentsList from "./CommentsList";
 import DateDisplay from "./DateDisplay";
 import VotingBar from "./VotingBar";
+import CommentForm from "./CommentForm";
 
 const ArticlePage = () => {
   const { article_id } = useParams();
@@ -47,6 +48,7 @@ const ArticlePage = () => {
           {topic} • <DateDisplay date={created_at} />
         </p>
         <VotingBar votes={votes} article_id={article_id} />
+        <CommentForm />
         <CommentsList article_id={article_id} />
       </div>
     </article>
