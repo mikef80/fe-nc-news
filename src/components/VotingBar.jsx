@@ -14,7 +14,7 @@ const VotingBar = ({ votes, article_id }) => {
       });
 
       setShowErr(true);
-      
+
       setTimeout(() => {
         setShowErr(false);
       }, 3000);
@@ -25,15 +25,15 @@ const VotingBar = ({ votes, article_id }) => {
     <div className='flex items-center flex-col w-[100%] gap-3'>
       <div className='flex justify-center w-[100%] gap-10'>
         <button
-          onClick={() => handleVote(1)}
-          className='bg-green-200 px-5 rounded-xl active:bg-green-400'>
-          +1
+          onClick={() => handleVote(-1)}
+          className='bg-red-200 px-5 rounded-xl hover:bg-red-300 active:bg-red-400'>
+          -1
         </button>
         <div>Votes: {articleVotes}</div>
         <button
-          onClick={() => handleVote(-1)}
-          className='bg-red-200 px-5 rounded-xl active:bg-red-400'>
-          -1
+          onClick={() => handleVote(1)}
+          className='bg-green-200 px-5 rounded-xl hover:bg-green-300 active:bg-green-400'>
+          +1
         </button>
       </div>
       {showErr && (

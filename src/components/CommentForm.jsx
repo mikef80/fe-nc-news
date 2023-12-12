@@ -4,11 +4,19 @@ const CommentForm = () => {
   const [comment, setComment] = useState("");
 
   const handleCommentUpdate = (e) => {
-    setComment(e.target.value)
-  }
+    setComment(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setComment("");
+  };
 
   return (
-    <form action='' className='flex justify-center p-3'>
+    <form
+      className='flex justify-center p-3'
+      onSubmit={handleFormSubmit}>
       <label htmlFor='comment'>
         Comment:
         <input
