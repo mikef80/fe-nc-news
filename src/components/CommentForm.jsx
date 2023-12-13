@@ -28,7 +28,6 @@ const CommentForm = ({ article_id, setComments }) => {
           setSubmitting(false);
         })
         .catch((err) => {
-          console.log("here be errors");
           setComments((currComments) => {
             currComments.shift();
             return currComments;
