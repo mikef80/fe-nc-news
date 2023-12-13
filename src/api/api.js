@@ -4,13 +4,13 @@ const ncNewsApi = axios.create({
   baseURL: "https://reddit-backend-client.onrender.com/api/",
 });
 
-export const getAllArticles = (topic, sort_by,order) => {
+export const getAllArticles = (topic, sort_by, order) => {
   return ncNewsApi
     .get("/articles", {
       params: {
         topic,
         sort_by,
-        order
+        order,
       },
     })
     .then(({ data }) => {

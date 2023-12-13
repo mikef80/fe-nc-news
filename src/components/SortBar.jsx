@@ -16,6 +16,7 @@ const SortBar = ({ topic }) => {
   };
 
   useEffect(() => {
+    
     setSearchParams(() => {
       let params = { sort_by: sortBy, order: orderBy };
       if (searchTopic) params.topic = searchTopic;
