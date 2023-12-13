@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import ArticleListItem from "./ArticleListItem";
 import { getAllArticles } from "../api/api";
 import Loading from "./Loading";
+import { useLocation } from "react-router-dom";
 
-const ArticlesList = () => {
+const ArticlesList = (props) => {
   const [articles, setArticles] = useState([]);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const topic = queryParams.get('topic');
+
 
   useEffect(() => {
-    getAllArticles().then(({ articles }) => {
+    getAllArticles(topic).then(({ articles }) => {
       setArticles(articles);
     });
-  }, []);
+  }, [topic]);
 
   if (!articles.length) {
     return <Loading />;

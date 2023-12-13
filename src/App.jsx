@@ -15,6 +15,7 @@ function App() {
           <Route path='/' element={<ArticlesList />} />
           <Route path='/articles/:article_id' element={<ArticlePage />} />
           <Route path='/topics' element={<TopicsList />} />
+          <Route path='/articles' element={<ArticlesList />} />
         </Routes>
       </Main>
       <NavBar />
