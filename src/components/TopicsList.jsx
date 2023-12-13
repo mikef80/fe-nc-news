@@ -17,9 +17,9 @@ const TopicsList = () => {
   }
 
   return (
-    <ul className="px-3 pt-2 flex flex-col items-center">
+    <ul className=" flex flex-col items-center ">
       {topics.map(topic => {
-        return <TopicListItem key={topic.slug} />
+        return <TopicListItem key={topic.slug} topic={topic} />
       })}
     </ul>
   );

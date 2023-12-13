@@ -4,13 +4,15 @@ const ncNewsApi = axios.create({
   baseURL: "https://reddit-backend-client.onrender.com/api/",
 });
 
-export const getAllArticles = () => {
-  return ncNewsApi.get("/articles").then(({ data }) => {
-    data.articles.sort(
-      (a, b) => new Date(b.created_at) - new Date(a.created_at)
-    );
-    return data;
-  });
+export const getAllArticles = (topic) => {
+  return ncNewsApi
+    .get("/articles", { params: { topic: topic } })
+    .then(({ data }) => {
+      data.articles.sort(
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      );
+      return data;
+    });
 };
 
 export const getArticleById = (id) => {
@@ -59,3 +61,7 @@ export const getTopics = () => {
 export const deleteCommentById = (comment_id) => {
   return ncNewsApi.delete(`comments/${comment_id}`);
 };
+
+/* export const getArticlesByTopic = (topic) => {
+  return ncNewsApi.get(``)
+} */
