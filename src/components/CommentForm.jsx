@@ -32,6 +32,13 @@ const CommentForm = ({ article_id, setComments }) => {
             currComments.shift();
             return currComments;
           });
+          setErr((currErr) => {
+            return {
+              msg: "An error occurred - your comment has not been submitted",
+              display: true,
+            };
+          });
+          setSubmitting(false);
         });
       setComment("");
     } else if (!comment.length) {
@@ -55,10 +62,9 @@ const CommentForm = ({ article_id, setComments }) => {
     <form
       className='flex flex-col items-center gap-3 justify-center p-3 mt-2'
       onSubmit={handleFormSubmit}>
-      <label htmlFor='comment'>
+      <label htmlFor='comment' className='flex items-center'>
         Comment:
-        <input
-          type='text'
+        <textarea
           name='comment'
           id='comment'
           placeholder='Enter comment...'

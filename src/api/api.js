@@ -41,7 +41,7 @@ export const postCommentByArticleId = (id, comment) => {
     })
     .then(({ data }) => {
       return data;
-    });
+    })
 };
 
 export const getUserByUsername = (username) => {
