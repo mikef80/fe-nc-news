@@ -14,9 +14,6 @@ export const getAllArticles = (topic, sort_by,order) => {
       },
     })
     .then(({ data }) => {
-      data.articles.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
       return data;
     });
 };
