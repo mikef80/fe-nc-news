@@ -61,7 +61,3 @@ export const getTopics = () => {
 export const deleteCommentById = (comment_id) => {
   return ncNewsApi.delete(`comments/${comment_id}`);
 };
-
-/* export const getArticlesByTopic = (topic) => {
-  return ncNewsApi.get(``)
-} */
