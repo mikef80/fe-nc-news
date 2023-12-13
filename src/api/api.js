@@ -54,6 +54,8 @@ export const getTopics = () => {
   return ncNewsApi.get("/topics").then(({ data }) => {
     return data;
   });
+};
+
 export const deleteCommentById = (comment_id) => {
   return ncNewsApi.delete(`comments/${comment_id}`);
 };
