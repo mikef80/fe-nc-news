@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import CommentsList from "./CommentsList";
 import DateDisplay from "./DateDisplay";
 import VotingBar from "./VotingBar";
+import CommentForm from "./CommentForm";
 
 const ArticlePage = () => {
   const { article_id } = useParams();

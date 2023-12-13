@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CommentsListItem from "./CommentsListItem";
 import { getCommentsByArticleId } from "../api/api";
+import CommentForm from "./CommentForm";
 
 const CommentsList = ({ article_id }) => {
   const [comments, setComments] = useState([]);
@@ -13,7 +14,8 @@ const CommentsList = ({ article_id }) => {
 
   return (
     <>
-      <h3 className="text-xl">Comments</h3>
+      <CommentForm article_id={article_id} setComments={setComments} />
+      <h3 className='text-xl'>Comments</h3>
       <ul>
         {comments.map((comment) => {
           return (
