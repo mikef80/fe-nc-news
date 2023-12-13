@@ -8,9 +8,6 @@ export const getAllArticles = (topic) => {
   return ncNewsApi
     .get("/articles", { params: { topic: topic } })
     .then(({ data }) => {
-      data.articles.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
       return data;
     });
 };
