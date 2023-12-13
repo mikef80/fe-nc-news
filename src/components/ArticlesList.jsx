@@ -14,9 +14,7 @@ const ArticlesList = (props) => {
   const topic = queryParams.get("topic");
   const sort_by = queryParams.get("sort_by");
   const order = queryParams.get("order");
-  console.log(topic, '<--topic');
-  console.log(sort_by, '<--sort_by');
-  console.log(order, '<--order');
+  
 
   useEffect(() => {
     getAllArticles(topic,sort_by,order)
@@ -29,7 +27,7 @@ const ArticlesList = (props) => {
         setErr(true);
         setLoading(false);
       });
-  }, [topic]);
+  }, [topic,sort_by,order]);
 
   if (loading) {
     return <Loading />;
@@ -45,7 +43,7 @@ const ArticlesList = (props) => {
 
   return (
     <>
-      <SortBar setArticles={setArticles} />
+      <SortBar />
       <ul className='px-3 pt-2'>
         {articles.map((article) => (
           <ArticleListItem key={article.article_id} article={article} />
