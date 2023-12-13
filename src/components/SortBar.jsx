@@ -18,7 +18,7 @@ const SortBar = () => {
 
   useEffect(() => {
     setSearchParams((currParams) => {
-      console.log(searchParams.get('topic'));
+      console.log(searchParams.get('topic')); // LOOKS LIKE SORTING BY VOTES DESCENDING ISN'T WORKING. LOOK INTO IT.
       return { ...currParams, sort_by: sortBy, order: orderBy };
     });
   }, [sortBy, orderBy]);
