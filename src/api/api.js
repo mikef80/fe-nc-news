@@ -41,11 +41,17 @@ export const postCommentByArticleId = (id, comment) => {
     })
     .then(({ data }) => {
       return data;
-    })
+    });
 };
 
 export const getUserByUsername = (username) => {
   return ncNewsApi.get(`/users/${username}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getTopics = () => {
+  return ncNewsApi.get("/topics").then(({ data }) => {
     return data;
   });
 };

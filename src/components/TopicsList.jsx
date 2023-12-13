@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { getTopics } from "../api/api";
+import Loading from "./Loading";
+import TopicListItem from "./TopicListItem";
 
 const TopicsList = () => {
-  return (
-    <div>TopicsList</div>
-  )
-}
+  const [topics, setTopics] = useState([]);
 
-export default TopicsList
+  useEffect(() => {
+    getTopics().then(({ topics }) => {
+      setTopics(topics);
+    });
+  }, []);
+
+  if (!topics.length) {
+    return <Loading />;
+  }
+
+  return (
+    <ul className="px-3 pt-2">
+      {topics.map(topic => {
+        return <TopicListItem key={topic.slug} />
+      })}
+    </ul>
+  );
+};
+
+export default TopicsList;
