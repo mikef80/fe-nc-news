@@ -44,7 +44,7 @@ export const postCommentByArticleId = (id, comment) => {
     });
 };
 
-export const getUserByUsername = (username) => {
+export const getAuthorByUsername = (username) => {
   return ncNewsApi.get(`/users/${username}`).then(({ data }) => {
     return data;
   });
@@ -54,4 +54,6 @@ export const getTopics = () => {
   return ncNewsApi.get("/topics").then(({ data }) => {
     return data;
   });
+export const deleteCommentById = (comment_id) => {
+  return ncNewsApi.delete(`comments/${comment_id}`);
 };
