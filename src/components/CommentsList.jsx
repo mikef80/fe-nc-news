@@ -6,12 +6,20 @@ import CommentForm from "./CommentForm";
 const CommentsList = ({ article_id }) => {
   const [comments, setComments] = useState([]);
   const [showErr, setShowErr] = useState(false);
+  const [confirmDeleted, setConfirmDeleted] = useState(false);
 
   useEffect(() => {
     getCommentsByArticleId(article_id).then(({ comments }) => {
       setComments(comments);
     });
   }, []);
+
+  const handleConfirmDeleted = (deleted) => {
+    setConfirmDeleted(deleted);
+    setTimeout(() => {
+      setConfirmDeleted(false);
+    }, 3000);
+  };
 
   return (
     <>
@@ -22,6 +30,11 @@ const CommentsList = ({ article_id }) => {
           An error occurred - comment was not deleted
         </div>
       )}
+      {confirmDeleted && (
+        <div className='text-green-600 font-bold text-xs flex justify-center pb-2'>
+          Comment deleted
+        </div>
+      )}
       <ul>
         {comments.map((comment) => {
           return (
@@ -30,6 +43,7 @@ const CommentsList = ({ article_id }) => {
               comment={comment}
               setComments={setComments}
               setShowErr={setShowErr}
+              handleConfirmDeleted={handleConfirmDeleted}
             />
           );
         })}

@@ -4,7 +4,7 @@ import { deleteCommentById, getAuthorByUsername } from "../api/api";
 import Bin from "../img/bin.png";
 import { UserContext } from "../contexts/UserContext";
 
-const CommentsListItem = ({ comment, setComments, setShowErr }) => {
+const CommentsListItem = ({ comment, setComments, setShowErr,handleConfirmDeleted }) => {
   const { body, author, votes, created_at, comment_id } = comment;
   const [commentAuthor, setCommentAuthor] = useState({});
   const { user } = useContext(UserContext);
@@ -31,14 +31,15 @@ const CommentsListItem = ({ comment, setComments, setShowErr }) => {
             (comment) => comment.comment_id !== comment_id
           );
         });
+        handleConfirmDeleted(true)
       })
       .catch(() => setShowErr(true));
   };
 
   return (
     <li className='bg-slate-200 p-2 mb-2 rounded-lg'>
-      <div className="flex-col flex items-center md:flex-row justify-between">
-        <div className="flex self-start">
+      <div className='flex-col flex items-center md:flex-row justify-between'>
+        <div className='flex self-start'>
           <img
             src={commentAuthor.avatar_url}
             alt=''
@@ -56,15 +57,15 @@ const CommentsListItem = ({ comment, setComments, setShowErr }) => {
           </div>
         </div>
         {displayDelete && (
-            <button disabled={deleting} className="mt-3 md:w-8 md:mt-0 md:ml-2">
-              <img
-                src={Bin}
-                alt=''
-                className='min-w-[32px] max-w-[32px] object-contain'
-                onClick={handleDeleteClick}
-                disabled
-              />
-            </button>
+          <button disabled={deleting} className='mt-3 md:w-8 md:mt-0 md:ml-2'>
+            <img
+              src={Bin}
+              alt=''
+              className='min-w-[32px] max-w-[32px] object-contain'
+              onClick={handleDeleteClick}
+              disabled
+            />
+          </button>
         )}
       </div>
     </li>
