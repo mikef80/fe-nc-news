@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { getAllArticles } from "../api/api";
 import { useSearchParams } from "react-router-dom";
 
-const SortBar = () => {
+const SortBar = ({ topic }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("desc");
-  const [topic, setTopic] = useState("");
+  const [searchTopic, setSearchTopic] = useState(topic);
 
   const handleSortByUpdate = (e) => {
     setSortBy(e.target.value);
@@ -17,11 +16,12 @@ const SortBar = () => {
   };
 
   useEffect(() => {
-    setSearchParams((currParams) => {
-      console.log(searchParams.get('topic')); // LOOKS LIKE SORTING BY VOTES DESCENDING ISN'T WORKING. LOOK INTO IT.
-      return { ...currParams, sort_by: sortBy, order: orderBy };
+    setSearchParams(() => {
+      let params = { sort_by: sortBy, order: orderBy };
+      if (searchTopic) params.topic = searchTopic;
+      return params;
     });
-  }, [sortBy, orderBy]);
+  }, [sortBy, orderBy, searchTopic]);
 
   return (
     <div className='p-3 flex flex-col md:block'>
@@ -38,7 +38,7 @@ const SortBar = () => {
           <option value='votes'>votes</option>
         </select>
       </label>
-      <label htmlFor='order-by' className="mt-3 md:mt-0 md:ml-3">
+      <label htmlFor='order-by' className='mt-3 md:mt-0 md:ml-3'>
         Order by:
         <select
           name='order-by'

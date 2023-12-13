@@ -13,6 +13,7 @@ const ArticleListItem = ({ article }) => {
     topic,
     created_at,
     comment_count,
+    votes
   } = article;
 
   return (
@@ -35,7 +36,7 @@ const ArticleListItem = ({ article }) => {
             </div>
             <div className="flex items-center pt-2">
               <img src={LikesIcon} alt="" className="h-3" />
-              <p className='text-xs capitalize pl-1'>{comment_count}</p>
+              <p className='text-xs capitalize pl-1'>{votes}</p>
             </div>
           </div>
         </div>

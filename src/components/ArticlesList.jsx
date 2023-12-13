@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ArticleListItem from "./ArticleListItem";
 import { getAllArticles } from "../api/api";
 import Loading from "./Loading";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import SortBar from "./SortBar";
 
 const ArticlesList = (props) => {
@@ -14,10 +14,9 @@ const ArticlesList = (props) => {
   const topic = queryParams.get("topic");
   const sort_by = queryParams.get("sort_by");
   const order = queryParams.get("order");
-  
 
   useEffect(() => {
-    getAllArticles(topic,sort_by,order)
+    getAllArticles(topic, sort_by, order)
       .then(({ articles }) => {
         setErr(false);
         setArticles(articles);
@@ -27,7 +26,7 @@ const ArticlesList = (props) => {
         setErr(true);
         setLoading(false);
       });
-  }, [topic,sort_by,order]);
+  }, [sort_by, order, topic]);
 
   if (loading) {
     return <Loading />;
@@ -43,7 +42,7 @@ const ArticlesList = (props) => {
 
   return (
     <>
-      <SortBar />
+      <SortBar topic={topic} />
       <ul className='px-3 pt-2'>
         {articles.map((article) => (
           <ArticleListItem key={article.article_id} article={article} />
