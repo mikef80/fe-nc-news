@@ -22,6 +22,6 @@ The app uses the backend provided by my [Northcoders backend project](https://gi
 
 ## Screenshots
 
-<img src='./public/img/screenshot-1.png' width=200 style="padding-right:20px">
+<img src='./public/img/screenshot-1.png' width=200>
 <img src='./public/img/screenshot-2.png' width=200>
-<img src='./public/img/screenshot-3.png' width=200 style="padding-left:20px">
+<img src='./public/img/screenshot-3.png' width=200>
