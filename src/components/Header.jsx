@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import NCNewsLogo from '../img/NCNewsLogo.png'
+import NCNewsLogo from '/img/NCNewsLogo.png'
 
 const Header = () => {
   return (

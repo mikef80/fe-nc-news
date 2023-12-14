@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import DateDisplay from "./DateDisplay";
-import CommentIcon from "../img/comment.png";
-import LikesIcon from "../img/like.png";
+import CommentIcon from "/img/comment.png";
+import LikesIcon from "/img/like.png";
 
 const ArticleListItem = ({ article }) => {
   const {

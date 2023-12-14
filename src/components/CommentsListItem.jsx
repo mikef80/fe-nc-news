@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import DateDisplay from "./DateDisplay";
 import { deleteCommentById, getAuthorByUsername } from "../api/api";
-import Bin from "../img/bin.png";
+import Bin from "/img/bin.png";
 import { UserContext } from "../contexts/UserContext";
 
 const CommentsListItem = ({ comment, setComments, setShowErr,handleConfirmDeleted }) => {
