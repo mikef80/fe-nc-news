@@ -1,8 +1,27 @@
-# React + Vite
+# NC News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend project of my Northcoders Software Development Bootcamp.
 
-Currently, two official plugins are available:
+It is a React app that provides the ability to browse news articles. You can see the entire list of news articles or filter them by topic. You also have the ability to sort and order the results
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can view the deployed version of the app at [NC News](https://nc-news-react-app.netlify.app/).
+
+The app uses the backend provided by my [Northcoders backend project](https://github.com/mikef80/be-nc-news).
+
+## How to use this repo
+
+1. Clone the repo to your local machine using `git clone https://github.com/mikef80/fe-nc-news.git`
+
+2. Navigate to the correct folder using `cd fe-nc-news`
+
+2. Run `npm install` to install all required dependencies
+    - Minimum versions required:
+      - Node - v20.5.0
+
+3. Run `npm run dev` to run the app locally
+
+## Screenshots
+
+<img src='./public/img/screenshot-1.png' width=200 style="padding-right:20px">
+<img src='./public/img/screenshot-2.png' width=200>
+<img src='./public/img/screenshot-3.png' width=200 style="padding-left:20px">
