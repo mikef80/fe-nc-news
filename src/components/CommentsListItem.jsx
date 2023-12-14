@@ -46,7 +46,7 @@ const CommentsListItem = ({ comment, setComments, setShowErr,handleConfirmDelete
             className='w-20 object-contain'
           />
           <div className='flex flex-col justify-between pl-5'>
-            <p className='pb-4'>{body}</p>
+            <p className='pb-4 [word-break:break-word]'>{body}</p>
             <div className='text-xs capitalize pt-2 text-gray-500 flex flex-col items-center'>
               <DateDisplay date={created_at} />
               <div className='flex justify-around pt-2 w-full'>
