@@ -6,11 +6,14 @@ import CommentsList from "./CommentsList";
 import DateDisplay from "./DateDisplay";
 import VotingBar from "./VotingBar";
 import CommentForm from "./CommentForm";
+import Error from "./Error";
 
 const ArticlePage = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
     getArticleById(article_id)
@@ -19,6 +22,15 @@ const ArticlePage = () => {
       })
       .then(() => {
         setLoading(false);
+      })
+      .catch((err) => {
+        const {
+          status,
+          data: { msg },
+        } = err.response;
+        setIsError(true);
+        setLoading(false);
+        setError({ status, msg });
       });
   }, []);
 
@@ -35,6 +47,10 @@ const ArticlePage = () => {
 
   if (loading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    return <Error error={error} />;
   }
 
   return (
