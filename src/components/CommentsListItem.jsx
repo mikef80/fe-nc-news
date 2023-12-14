@@ -47,7 +47,7 @@ const CommentsListItem = ({ comment, setComments, setShowErr,handleConfirmDelete
           />
           <div className='flex flex-col justify-between pl-5'>
             <p className='pb-4 [word-break:break-word]'>{body}</p>
-            <div className='text-xs capitalize pt-2 text-gray-500 flex flex-col items-center'>
+            <div className='text-xs capitalize pt-2 text-gray-600 flex flex-col items-center'>
               <DateDisplay date={created_at} />
               <div className='flex justify-around pt-2 w-full'>
                 <p>Author: {commentAuthor.name}</p>
@@ -57,7 +57,7 @@ const CommentsListItem = ({ comment, setComments, setShowErr,handleConfirmDelete
           </div>
         </div>
         {displayDelete && (
-          <button disabled={deleting} className='mt-3 md:w-8 md:mt-0 md:ml-2'>
+          <button disabled={deleting} className='mt-3 md:w-8 md:mt-0 md:ml-2' aria-label="delete button">
             <img
               src={Bin}
               alt=''
