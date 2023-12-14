@@ -25,7 +25,7 @@ const SortBar = ({ topic }) => {
   }, [sortBy, orderBy, searchTopic]);
 
   return (
-    <div className='p-3 flex flex-col md:block'>
+    <div className='p-3 pt-5 flex flex-col md:block'>
       <label htmlFor='sort-by'>
         Sort by:
         <select
