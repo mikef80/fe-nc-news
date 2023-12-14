@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import DateDisplay from "./DateDisplay";
+import CommentIcon from "../img/comment.png";
+import LikesIcon from "../img/like.png";
 
 const ArticleListItem = ({ article }) => {
   const {
@@ -10,6 +12,8 @@ const ArticleListItem = ({ article }) => {
     body,
     topic,
     created_at,
+    comment_count,
+    votes
   } = article;
 
   return (
@@ -23,9 +27,18 @@ const ArticleListItem = ({ article }) => {
           <p className='text-xs pb-2'>By: {author}</p>
           <p className='line-clamp-3'>{body}</p>
           <p className='text-xs capitalize pt-2'>
-            {topic} •{" "}
-            <DateDisplay date={created_at} />
+            {topic} • <DateDisplay date={created_at} />
           </p>
+          <div className="flex gap-4">
+            <div className="flex items-center pt-2">
+              <img src={CommentIcon} alt="" className="h-3" />
+              <p className='text-xs capitalize pl-1'>{comment_count}</p>
+            </div>
+            <div className="flex items-center pt-2">
+              <img src={LikesIcon} alt="" className="h-3" />
+              <p className='text-xs capitalize pl-1'>{votes}</p>
+            </div>
+          </div>
         </div>
       </Link>
     </li>

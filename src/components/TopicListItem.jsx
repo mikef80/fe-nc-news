@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getAllArticles } from "../api/api";
 import Loading from "./Loading";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const TopicListItem = ({ topic }) => {
-  const { slug, description } = topic;
+  const { slug } = topic;
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -17,8 +17,8 @@ const TopicListItem = ({ topic }) => {
 
   if (articles.length) {
     return (
-        <Link to={`/articles?topic=${slug}`}>
-      <li className='flex w-[204px] flex-wrap m-4 justify-center border-2 border-black rounded-xl relative'>
+      <Link to={`/articles?topic=${slug}`}>
+        <li className='flex w-[204px] flex-wrap m-4 justify-center border-2 border-black rounded-xl relative'>
           <img
             src={articles[0].article_img_url}
             alt=''
@@ -42,8 +42,8 @@ const TopicListItem = ({ topic }) => {
           <div className='absolute top-1/2 -translate-y-1/2  text-3xl bg-white rounded-3xl p-2 border-2 border-black'>
             {slug}
           </div>
-      </li>
-        </Link>
+        </li>
+      </Link>
     );
   }
 };
