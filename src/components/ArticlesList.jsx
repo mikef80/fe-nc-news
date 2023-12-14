@@ -4,11 +4,13 @@ import { getAllArticles } from "../api/api";
 import Loading from "./Loading";
 import { useLocation } from "react-router-dom";
 import SortBar from "./SortBar";
+import Error from "./Error";
 
 const ArticlesList = (props) => {
   const [articles, setArticles] = useState([]);
-  const [err, setErr] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const topic = queryParams.get("topic");
@@ -18,13 +20,18 @@ const ArticlesList = (props) => {
   useEffect(() => {
     getAllArticles(topic, sort_by, order)
       .then(({ articles }) => {
-        setErr(false);
+        setIsError(false);
         setArticles(articles);
         setLoading(false);
       })
       .catch((err) => {
-        setErr(true);
+        const {
+          status,
+          data: { msg },
+        } = err.response;
+        setIsError(true);
         setLoading(false);
+        setError({ status, msg });
       });
   }, [sort_by, order, topic]);
 
@@ -32,11 +39,9 @@ const ArticlesList = (props) => {
     return <Loading />;
   }
 
-  if (err) {
+  if (isError) {
     return (
-      <div className='text-red-600 font-bold text-xs flex justify-center pt-10'>
-        An error occurred. Please navigate 'Home' and try again
-      </div>
+      <Error error={error} />
     );
   }
 
