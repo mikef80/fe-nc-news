@@ -1,1 +1,2 @@
 - slugify article urls
+- move topic selection to SortBar
