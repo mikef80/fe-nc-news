@@ -1,5 +1,3 @@
-import React from "react";
-
 const Error = ({ error }) => {
   const { status, msg } = error;
   return (

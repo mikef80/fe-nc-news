@@ -10,7 +10,7 @@ const VotingBar = ({ votes, article_id }) => {
     
     setArticleVotes((currVotes) => currVotes + vote_count);
 
-    updateVotesByArticleId(article_id, vote_count).catch((err) => {
+    updateVotesByArticleId(article_id, vote_count).catch(() => {
       setArticleVotes((currVotes) => {
         return currVotes - vote_count;
       });

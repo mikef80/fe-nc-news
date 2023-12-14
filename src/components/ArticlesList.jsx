@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import SortBar from "./SortBar";
 import Error from "./Error";
 
-const ArticlesList = (props) => {
+const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(true);

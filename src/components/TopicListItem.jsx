@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllArticles } from "../api/api";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";

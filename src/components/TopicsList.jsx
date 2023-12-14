@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getTopics } from "../api/api";
 import Loading from "./Loading";
 import TopicListItem from "./TopicListItem";
