@@ -22,10 +22,6 @@ The app uses the backend provided by my [Northcoders backend project](https://gi
 
 ## Screenshots
 
-![](./public/img/screenshot-1.png)
-![](./public/img/screenshot-2.png)
-![](./public/img/screenshot-3.png)
-
-<img src='./public/img/screenshot-1.png' width=200>
-<img src='./public/img/screenshot-2.png' width=200>
-<img src='./public/img/screenshot-3.png' width=200>
+![Home screen](./public/img/screenshot-1.png)
+![Topic screen](./public/img/screenshot-2.png)
+![Article screen](./public/img/screenshot-3.png)
