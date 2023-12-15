@@ -15,8 +15,11 @@ const SortBar = ({ topic }) => {
     setOrderBy(e.target.value);
   };
 
+  const handleSearchUpdate = (e) => {
+    setSearchTopic(e.target.value);
+  };
+
   useEffect(() => {
-    
     setSearchParams(() => {
       let params = { sort_by: sortBy, order: orderBy };
       if (searchTopic) params.topic = searchTopic;
@@ -50,6 +53,16 @@ const SortBar = ({ topic }) => {
           <option value='desc'>descending</option>
           <option value='asc'>ascending</option>
         </select>
+      </label>
+      <label htmlFor='search' className='mt-3 md:mt-0 md:ml-3'>
+        Search:
+        <input
+          type='text'
+          name='search'
+          id='search'
+          onChange={handleSearchUpdate}
+          className='border-2 rounded-md ml-1 p-1'
+        />
       </label>
     </div>
   );
