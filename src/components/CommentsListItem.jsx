@@ -3,6 +3,7 @@ import DateDisplay from "./DateDisplay";
 import { deleteCommentById, getAuthorByUsername } from "../api/api";
 import Bin from "/img/bin.png";
 import { UserContext } from "../contexts/UserContext";
+import toast from "react-hot-toast";
 
 const CommentsListItem = ({ comment, setComments, setShowErr,handleConfirmDeleted }) => {
   const { body, author, votes, created_at, comment_id } = comment;
@@ -33,7 +34,10 @@ const CommentsListItem = ({ comment, setComments, setShowErr,handleConfirmDelete
         });
         handleConfirmDeleted(true)
       })
-      .catch(() => setShowErr(true));
+      .catch(() => {
+        toast.error("Error - comment was not deleted");
+        setShowErr(true);
+      });
   };
 
   return (

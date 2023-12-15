@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { postCommentByArticleId } from "../api/api";
 import Error from "./Error";
+import toast from "react-hot-toast";
 
 const CommentForm = ({ article_id, setComments }) => {
   const [comment, setComment] = useState("");
@@ -21,6 +22,7 @@ const CommentForm = ({ article_id, setComments }) => {
       .then(({ comment }) => {
         setComments((currComments) => [comment, ...currComments]);
         setSubmitting(false);
+        toast.success('Comment submitted!')
         setComment("");
       })
 

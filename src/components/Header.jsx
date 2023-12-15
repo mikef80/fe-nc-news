@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NCNewsLogo from "/img/NCNewsLogo.png";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
   return (
@@ -10,6 +11,25 @@ const Header = () => {
         href='#navbar'>
         Skip to Navigation
       </a>
+      <Toaster
+        gutter={0}
+        toastOptions={{
+          className: "text-xl h-[70px] md:h-[61px] w-full border-2 border-black",
+          success: {
+            style: {
+              background: "rgb(187,247,208)",
+            },
+          },
+          error: {
+            duration:Infinity,
+            style: {
+              background: "rgb(254,202,202)",
+              
+            },
+          },
+        }}
+        containerClassName='!top-0'
+      />
       <h1>
         <Link to='/'>
           <img

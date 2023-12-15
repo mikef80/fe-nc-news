@@ -18,7 +18,7 @@ const TopicListItem = ({ topic }) => {
   if (articles.length) {
     return (
       <li>
-        <Link to={`/articles?topic=${slug}`} >
+        <Link to={`/articles?topic=${slug}`}>
           <div className='flex w-[204px] flex-wrap m-4 justify-center border-2 border-black rounded-xl relative'>
             <img
               src={articles[0].article_img_url}
