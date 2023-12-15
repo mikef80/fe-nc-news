@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getArticleById } from "../api/api";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import CommentsList from "./CommentsList";
 import DateDisplay from "./DateDisplay";
@@ -33,15 +33,8 @@ const ArticlePage = () => {
       });
   }, []);
 
-  const {
-    title,
-    body,
-    author,
-    created_at,
-    article_img_url,
-    votes,
-    topic,
-  } = article;
+  const { title, body, author, created_at, article_img_url, votes, topic } =
+    article;
 
   if (loading) {
     return <Loading />;
@@ -59,7 +52,7 @@ const ArticlePage = () => {
         <p className='text-xs pb-2'>By: {author}</p>
         <p className='leading-7'>{body}</p>
         <p className='text-xs capitalize pt-2 pb-[50px] text-gray-500'>
-          {topic} • <DateDisplay date={created_at} />
+          <Link to={`/articles?topic=${topic}`}>{topic}</Link> • <DateDisplay date={created_at} />
         </p>
         <VotingBar votes={votes} article_id={article_id} />
         <CommentsList article_id={article_id} />
