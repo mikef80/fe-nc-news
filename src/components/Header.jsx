@@ -3,6 +3,21 @@ import NCNewsLogo from "/img/NCNewsLogo.png";
 import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
+  const toasterOptions = {
+    className: "text-xl h-[70px] md:h-[61px] w-full border-2 border-black",
+    success: {
+      style: {
+        background: "rgb(187,247,208)",
+      },
+    },
+    error: {
+      duration: Infinity,
+      style: {
+        background: "rgb(254,202,202)",
+      },
+    },
+  };
+
   return (
     <header className='text-center text-4xl  border-b-2 border-black fixed top-0 w-screen z-10 flex justify-center font-bold py-2 md:py-0 bg-[#efefef]'>
       <a
@@ -13,21 +28,7 @@ const Header = () => {
       </a>
       <Toaster
         gutter={0}
-        toastOptions={{
-          className: "text-xl h-[70px] md:h-[61px] w-full border-2 border-black",
-          success: {
-            style: {
-              background: "rgb(187,247,208)",
-            },
-          },
-          error: {
-            duration:Infinity,
-            style: {
-              background: "rgb(254,202,202)",
-              
-            },
-          },
-        }}
+        toastOptions={toasterOptions}
         containerClassName='!top-0'
       />
       <h1>
