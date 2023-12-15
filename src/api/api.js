@@ -21,7 +21,7 @@ export const getAllArticles = (topic, sort_by, order) => {
 export const getArticleById = (id) => {
   return ncNewsApi.get(`/articles/${id}`).then(({ data }) => {
     return data;
-  })
+  });
 };
 
 export const getCommentsByArticleId = (id) => {
